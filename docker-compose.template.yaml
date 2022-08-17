@@ -1,0 +1,13 @@
+x-uffizzi:
+  ingress:
+    service: frontend
+    port: 3000
+
+services:
+  frontend:
+    image: "${FRONTEND_IMAGE}"
+    environment:
+      STRAPI_URL: http://localhost:1337
+
+  backend:
+    image: "${BACKEND_IMAGE}"

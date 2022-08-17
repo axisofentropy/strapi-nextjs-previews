@@ -1,0 +1,10 @@
+services:
+  frontend:
+    build: ./frontend
+    environment:
+      STRAPI_URL: http://backend:1337
+    ports:
+      - "3000:3000"
+
+  backend:
+    build: ./backend
