@@ -110,17 +110,20 @@ jobs:
       - name: Checkout git repo
         uses: actions/checkout@v3
       - name: Override environment file.
-        run: echo -n STRAPI_URL="https://deployment-5112-my-application.app.uffizzi.com/" > frontend/.env
+        working-directory: frontend
+        run: echo -n STRAPI_URL="https://deployment-5112-my-application.app.uffizzi.com/" > .env
         #run: echo STRAPI_URL=${{ needs.deploy-uffizzi-preview.outputs.url }} > frontend/.env
       - uses: actions/setup-node@v3
         with:
           node-version: 14
       - run: npm install
+        working-directory: frontend
       - run: npm run-script build
+        working-directory: frontend
       - uses: nwtgck/actions-netlify@v1.2
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: 70ab084a-48a1-49f8-bdc0-27d4e7596c30
         with:
-          publish-dir: '.nextjs'
+          publish-dir: 'frontend/.nextjs'
           alias: ${{ env.BRANCH_NAME }}
