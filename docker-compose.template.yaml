@@ -1,0 +1,12 @@
+x-uffizzi:
+  ingress:
+    service: backend
+    port: 1337
+
+services:
+  backend:
+    image: "${BACKEND_IMAGE}"
+    deploy:
+      resources:
+        limits:
+          memory: 1000M
