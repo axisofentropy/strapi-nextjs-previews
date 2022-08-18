@@ -1,18 +1,9 @@
 x-uffizzi:
   ingress:
-    service: frontend
-    port: 3000
+    service: backend
+    port: 1337
 
 services:
-  frontend:
-    image: "${FRONTEND_IMAGE}"
-    environment:
-      STRAPI_URL: http://localhost:1337
-    deploy:
-      resources:
-        limits:
-          memory: 500M
-
   backend:
     image: "${BACKEND_IMAGE}"
     deploy:
