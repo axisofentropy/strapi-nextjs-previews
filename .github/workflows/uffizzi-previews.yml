@@ -110,8 +110,9 @@ jobs:
       - name: Checkout git repo
         uses: actions/checkout@v3
       - name: Override environment file.
-        run: echo STRAPI_URL=${{ needs.deploy-uffizzi-preview.outputs.url }} > .env
-      - uses: jsmrcaga/action-netlify-deploy@v1.1.0
+        run: echo STRAPI_URL=${{ needs.deploy-uffizzi-preview.outputs.url }} > frontend/.env
+      - uses: jsmrcaga/action-netlify-deploy@v1.8.0
+        working-directory: frontend
         with:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_DEPLOY_TO_PROD: true
