@@ -111,7 +111,7 @@ jobs:
         uses: actions/checkout@v3
       - name: Override environment file.
         working-directory: frontend
-        run: echo -n STRAPI_URL="https://deployment-5112-my-application.app.uffizzi.com/" > .env
+        run: echo -n STRAPI_URL="https://deployment-5112-my-application.app.uffizzi.com/" >> .env
         #run: echo STRAPI_URL=${{ needs.deploy-uffizzi-preview.outputs.url }} > frontend/.env
       - uses: actions/setup-node@v3
         with:
