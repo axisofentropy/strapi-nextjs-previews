@@ -119,6 +119,8 @@ jobs:
       - run: npm install
         working-directory: frontend
       - run: npm run-script build
+        env:
+          STRAPI_URL: https://deployment-5112-my-application.app.uffizzi.com/
         working-directory: frontend
       - uses: nwtgck/actions-netlify@v1.2
         env:
