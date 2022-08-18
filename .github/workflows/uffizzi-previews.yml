@@ -105,6 +105,7 @@ jobs:
   deploy-netlify-preview:
     name: Deploy Frontend to Netlify
     needs: deploy-uffizzi-preview
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout git repo
         uses: actions/checkout@v3
