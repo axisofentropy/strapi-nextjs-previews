@@ -8,10 +8,14 @@ services:
     image: "${FRONTEND_IMAGE}"
     environment:
       STRAPI_URL: http://localhost:1337
+    deploy:
+      resources:
+        limits:
+          memory: 500M
 
   backend:
     image: "${BACKEND_IMAGE}"
     deploy:
       resources:
         limits:
-          memory: 500M
+          memory: 1000M
