@@ -10,4 +10,6 @@ RUN npm install
 
 #RUN npx browserslist@latest --update-db
 
-CMD ["npm", "run", "develop"]
+RUN npm run build
+
+CMD ["npm", "start"]
